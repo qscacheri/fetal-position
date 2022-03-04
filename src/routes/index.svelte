@@ -1,8 +1,8 @@
 <script lang="ts">
 	import HeadPosition from '../components/HeadPosition.svelte';
-	import { getRandomPositions } from '../positions';
+	import { getRandomPositions, positions } from '../positions';
 
-	let options = getRandomPositions(4);
+	let options = getRandomPositions(positions.length);
 	let selectedOption = options.options[0].name;
 	let showAnswers = false;
 	let shouldJiggle = false;
