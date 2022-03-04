@@ -36,15 +36,20 @@
 			<img src="/fetal.png" alt="" class="h-8 my-auto" />
 		</header>
 		<HeadPosition position={options.correctAnswer} />
-		<form on:submit|preventDefault={handleSubmit} class="grid place-items-center mt-4">
-			<div class="flex bg-neutral-200 p-4 rounded-md shadow z-50">
+		<form
+			on:submit|preventDefault={handleSubmit}
+			class="grid place-items-center mt-4 w-full sm:w-auto"
+		>
+			<div
+				class="flex bg-neutral-200 p-4 rounded-md shadow z-50 flex-wrap sm:w-auto justify-around w-full"
+			>
 				{#each options.options as option}
 					<label
 						class:wrong={showAnswers &&
 							options.correctAnswer.name !== selectedOption &&
 							option.name === selectedOption}
 						class:correct={showAnswers && options.correctAnswer.name === option.name}
-						class="my-auto mr-4 shadow-sm rounded p-2"
+						class="my-auto mr-4 rounded p-2"
 						for={option.name}
 					>
 						<input
