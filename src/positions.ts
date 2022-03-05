@@ -10,12 +10,20 @@ export const positions: Position[] = [
 	{ name: 'LOP', angle: 315 }
 ];
 
-export const getRandomPositions = (count = 1) => {
+export const getRandomPositions = (count = 1, previous: Position) => {
 	const p = [...positions];
 	const r: Position[] = [];
 	for (let i = 0; i < count; i++) {
 		const index = Math.floor(Math.random() * p.length);
 		r.push(p.splice(index, 1)[0]);
 	}
-	return { options: r, correctAnswer: r[Math.floor(Math.random() * count)] };
+	let correctAnswer = r[Math.floor(Math.random() * count)];
+	// eslint-disable-next-line no-constant-condition
+	while (true) {
+		if (correctAnswer.name !== previous.name) {
+			break;
+		}
+		correctAnswer = r[Math.floor(Math.random() * count)];
+	}
+	return { options: r, correctAnswer };
 };

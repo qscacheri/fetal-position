@@ -2,7 +2,7 @@
 	import HeadPosition from '../components/HeadPosition.svelte';
 	import { getRandomPositions, positions } from '../positions';
 
-	let options = getRandomPositions(positions.length);
+	let options = getRandomPositions(positions.length, positions[0]);
 	let selectedOption = options.options[0].name;
 	let showAnswers = false;
 	let shouldJiggle = false;
@@ -14,7 +14,7 @@
 			setTimeout(() => {
 				shouldJiggle = false;
 				showNext = true;
-			}, 1000);
+			}, 500);
 		} else {
 			showNext = true;
 		}
@@ -22,7 +22,7 @@
 
 	function getNewPosition() {
 		showAnswers = false;
-		options = getRandomPositions(4);
+		options = getRandomPositions(positions.length, options.correctAnswer);
 		selectedOption = options.options[0].name;
 	}
 </script>
@@ -41,7 +41,7 @@
 			class="grid place-items-center mt-4 w-full row-start-[8]"
 		>
 			<div
-				class="flex w-11/12 bg-neutral-200 bg-opacity-50 mx-auto p-4 rounded-md shadow z-50 flex-wrap sm:w-auto justify-around w-full"
+				class="flex w-11/12 bg-neutral-200 bg-opacity-50 mx-auto p-4 rounded-md shadow z-50 flex-wrap sm:w-auto justify-around"
 			>
 				{#each options.options as option}
 					<label
