@@ -27,9 +27,9 @@
 	}
 </script>
 
-<div class="page w-screen h-screen bg-red-500">
-	<div class="h-full flex flex-col justify-center">
-		<header class="fixed top-5 left-5 flex h-8">
+<div class="page w-screen h-screen">
+	<div class="content h-full sm:flex sm:flex-col grid grid-cols-1 justify-center">
+		<header class="sm:fixed my-auto mx-2 sm:m-0 row-start-1 row-span-1 top-5 left-5 flex sm:h-8">
 			<div class="flex flex-col justify-end h-full translate-y-1.5">
 				<h1 class="text-white text-2xl  mr-2">Fetal Position</h1>
 			</div>
@@ -38,7 +38,7 @@
 		<HeadPosition position={options.correctAnswer} />
 		<form
 			on:submit|preventDefault={handleSubmit}
-			class="grid place-items-center mt-4 w-full sm:w-auto"
+			class="grid place-items-center mt-4 w-full sm:w-auto row-start-[8]"
 		>
 			<div
 				class="flex bg-neutral-200 p-4 rounded-md shadow z-50 flex-wrap sm:w-auto justify-around w-full"
@@ -122,5 +122,9 @@
 	}
 	.jiggle {
 		animation: jiggle 0.3s;
+	}
+
+	.content {
+		grid-template-rows: repeat(12, minmax(0, 1fr));
 	}
 </style>

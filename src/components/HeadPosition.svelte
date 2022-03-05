@@ -9,7 +9,7 @@
 	};
 </script>
 
-<div class="container w-full sm:w-1/3 mx-auto aspect-square shadow-md rounded bg-neutral-200 p-4">
+<div class="container w-full sm:w-1/3 row-start-2 row-span-4 mx-auto aspect-square rounded p-4">
 	<img
 		class="head"
 		src="/head.svg"
