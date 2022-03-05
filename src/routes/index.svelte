@@ -38,10 +38,10 @@
 		<HeadPosition position={options.correctAnswer} />
 		<form
 			on:submit|preventDefault={handleSubmit}
-			class="grid place-items-center mt-4 w-full sm:w-auto row-start-[8]"
+			class="grid place-items-center mt-4 w-full row-start-[8]"
 		>
 			<div
-				class="flex bg-neutral-200 p-4 rounded-md shadow z-50 flex-wrap sm:w-auto justify-around w-full"
+				class="flex w-11/12 bg-neutral-200 bg-opacity-50 mx-auto p-4 rounded-md shadow z-50 flex-wrap sm:w-auto justify-around w-full"
 			>
 				{#each options.options as option}
 					<label
